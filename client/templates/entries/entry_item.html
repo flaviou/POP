@@ -1,0 +1,14 @@
+<template name="entryItem">
+  <div class="entry">
+    <div class="entry-content">
+		<a href="{{pathFor 'entryPage'}}" class="discuss btn btn-default">
+			<h3>{{name}}</h3>
+		</a>
+		<p>
+			owned by {{owner}}
+			<a href="{{pathFor 'entryPage'}}">{{picksCount}} picks</a>
+			{{#if ownEntry}}<a href="{{pathFor 'entryEdit'}}">Edit</a>{{/if}}
+		</p>		
+    </div>
+  </div>
+</template>

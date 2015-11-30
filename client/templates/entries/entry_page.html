@@ -1,0 +1,15 @@
+<template name="entryPage">
+  <div class="entry-page page">
+    {{> entryItem}}
+    <ul class="picks">
+		{{#each picks}}
+			{{> pickItem}}
+		{{/each}}
+	</ul>   
+	{{ownEntry}}
+	{{#if ownEntry}}
+		{{> pickSubmit}}    
+	{{else}}
+	{{/if}}	
+  </div>
+</template>

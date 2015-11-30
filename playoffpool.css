@@ -1,0 +1,5 @@
+/* CSS declarations go here */
+.navbar-nav > li{
+  padding-left:15px;
+  padding-right:15px;
+}

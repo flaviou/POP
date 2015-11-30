@@ -1,0 +1,29 @@
+<template name="profileEdit">
+	<div class="profile">
+		<form class="form-horizontal js-profile-edit">
+			<div class="form-group">
+				<label for="email" class="col-sm-offset-3 col-sm-2 control-label">Email</label>
+				<div class="col-sm-4">
+					<p class="form-control-static">{{email}}</p>
+				</div>
+				<div class="col-sm-3">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="fullName" class="col-sm-offset-3 col-sm-2 control-label">Full Name</label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" id="fullName" name="fullName" placeholder="Full Name" autofocus value={{full_name}}>
+				</div>
+				<div class="col-sm-3">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-8 col-sm-1">
+					<button type="submit" class="btn btn-primary js-save-profile">Save</button>
+				</div>
+				<div class="col-sm-3">
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
