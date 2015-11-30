@@ -32,3 +32,4 @@ Accounts.ui.config({
 	forceUsernameLowercase: true,
     forcePasswordLowercase: true,
 });
+
