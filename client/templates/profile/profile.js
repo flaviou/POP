@@ -1,14 +1,7 @@
 Template.profileEdit.helpers({
-	email: function(){
+	_id: function() {
 		if (Meteor.user()) {
-			return Meteor.user().emails[0].address;
-		} else {
-			return "";
-		}
-	},
-	full_name: function() {
-		if (Meteor.user()) {
-			return Meteor.user().profile.full_name;
+			return Meteor.userId();
 		} else {
 			return "";
 		}
@@ -20,6 +13,6 @@ Template.profileEdit.events({
 		event.preventDefault();
 		var user_id = Meteor.userId();
 		var full_name = event.target.fullName.value;
-		Meteor.users.update({_id: user_id},{$set: {'profile.full_name': full_name}});
+		Meteor.call('updateUser', user_id, {'profile.full_name': full_name});
 	},
 });

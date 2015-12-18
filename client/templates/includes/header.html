@@ -11,8 +11,13 @@
 			<a class="navbar-brand" href="#" >Playoff Pool</a>
 		</div>
 		<div class="collapse navbar-collapse" id="navbar">
+			{{#if isInRole 'admin' 'default-group'}}
+				<ul class="nav navbar-nav navbar-default">
+					<li><a href="{{pathFor 'usersList'}}" class="glyphicon glyphicon-user"></a></li>
+				</ul>
+			{{/if}}
 			<ul class="nav navbar-nav navbar-right">
-				<li>{{>info}}</li>
+				{{>info}}
 				<li>{{> loginButtons}}</li>
 			</ul>
 		</div>

@@ -1,9 +1,9 @@
-Meteor.publish('globals', function(){
-	return Globals.find();
-});
-
 Meteor.publish('entries', function(){
   return Entries.find();
+});
+
+Meteor.publish('globals', function(){
+	return Globals.find();
 });
 
 Meteor.publish('picks', function(entryId) {
@@ -11,3 +11,11 @@ Meteor.publish('picks', function(entryId) {
 	return Picks.find({entryId: entryId});
 });
 
+
+Meteor.publish('users', function() {
+	if (Roles.userIsInRole(this.userId, ['admin'], 'default-group')) {
+		return Meteor.users.find();
+	} else {
+		return Meteor.users.find({_id:this.userId});
+	}
+});

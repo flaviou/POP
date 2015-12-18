@@ -1,0 +1,25 @@
+<template name="usersList">
+  <div class="users">
+	<table class="table table-hover table-condensed table-bordered">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Email Address</th>
+				<th>Create On</th>
+				<th>Last Login</th>
+				<th>Last Update On</th>
+				<th>Last Update By</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each users}}
+			  {{> userItem}}
+			{{/each}}
+		</tbody>
+	</table>
+  </div>
+  {{> userDelete}}
+  {{> userEdit}}
+</template>
