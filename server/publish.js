@@ -13,7 +13,7 @@ Meteor.publish('picks', function(entryId) {
 
 
 Meteor.publish('users', function() {
-	if (Roles.userIsInRole(this.userId, ['admin'], 'default-group')) {
+	if (Roles.userIsInRole(this.userId, ['admin'])) {
 		return Meteor.users.find();
 	} else {
 		return Meteor.users.find({_id:this.userId});

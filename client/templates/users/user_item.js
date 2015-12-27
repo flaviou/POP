@@ -21,7 +21,8 @@ Template.userEdit.events({
 		event.preventDefault();
 		var user_id = Session.get("selectedUser");
 		var full_name = event.target.fullName.value;
-		Meteor.call('updateUser', user_id, {'profile.full_name': full_name});
+		Meteor.users.update(user_id, {$set: {'profile.full_name': full_name}}, function(error, result) {
+		}); 
 		$("#userEdit").modal("hide");
 	}
 })
