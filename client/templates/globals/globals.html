@@ -1,0 +1,9 @@
+<template name="globalEdit">
+  {{#autoForm schema="Schema.Global" collection="Globals" id="globalEdit" type="update" doc=doc}}
+    <fieldset>
+      <legend>System Settings</legend>
+      {{> afQuickField name="phase" options=phaseOptions type="select-radio-inline"}}
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Save</button>
+  {{/autoForm}}
+</template>
