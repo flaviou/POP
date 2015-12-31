@@ -1,14 +1,9 @@
-Meteor.publish('entries', function(){
-  return Entries.find();
-});
-
 Meteor.publish('globals', function(){
 	return Globals.find();
 });
 
-Meteor.publish('picks', function(entryId) {
-	check(entryId, String);
-	return Picks.find({entryId: entryId});
+Meteor.publish('myPicks', function() {
+	return Picks.find({owner: this.userId});
 });
 
 Meteor.publish('players', function(){

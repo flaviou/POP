@@ -35,3 +35,13 @@ Template.registerHelper("gh_show_warning", function() {
 		return "";
 	}
 });
+
+Template.registerHelper("gh_show_standing", function() {
+	doc = Globals.findOne();
+	if (doc) {
+		return ((doc.phase == '2') || (doc.phase == '3'));
+	} else {
+		return false;
+	}
+
+});

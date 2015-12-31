@@ -1,25 +1,12 @@
 <template name="mainTabs">
   <div>
     <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation" class="active"><a href="#myPicks" aria-controls="myPicks" role="tab" data-toggle="tab">My Teams</a></li>
-      <li role="presentation"><a href="#standings" aria-controls="standings" role="tab" data-toggle="tab">Standings</a></li>
+      <li role="presentation" class="active"><a href="{{pathFor myPicks}}" }} aria-controls="myPicks" role="tab" data-toggle="tab">My Teams</a></li>
+      <li role="presentation"><a href="{{pathFor standings}}" aria-controls="standings" role="tab" data-toggle="tab">Standings</a></li>
       {{#if isInRole 'admin'}}
-      <li role="presentation"><a href="#users" aria-controls="users" role="tab" data-toggle="tab">Users</a></li>
-      <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+      <li role="presentation"><a href="{{pathFor userList}}" aria-controls="users" role="tab" data-toggle="tab">Users</a></li>
+      <li role="presentation"><a href="{{pathFor settings}}" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
       {{/if}}
     </ul>
-    <div class="tab-content">
-      <div role="tabpanel" class="tab-pane fade in active" id="myPicks">
-        {{> myPicks}}
-      </div>
-      <div role="tabpanel" class="tab-pane fade" id="standings">
-      </div>
-      <div role="tabpanel" class="tab-page fade" id="users">
-        {{> usersList}}
-      </div>
-      <div role="tabpanel" class="tab-pane fade" id="settings">
-        {{> globalEdit}}
-      </div>
-    </div>
   </div>
 </template>
