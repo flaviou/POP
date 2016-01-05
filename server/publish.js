@@ -14,10 +14,14 @@ Meteor.publish('teams', function(){
   return Teams.find();
 });
 
-Meteor.publish('users', function() {
-	if (Roles.userIsInRole(this.userId, ['admin'])) {
-		return Meteor.users.find();
-	} else {
-		return Meteor.users.find({_id:this.userId});
-	}
+Meteor.publish('users', function(filter) {
+  if (!filter) {
+    filter = {};
+  }
+  if (Roles.userIsInRole(this.userId, ['admin'])) {
+    return Meteor.users.find(filter);
+  } else {
+    return Meteor.users.find({$and: [{_id:this.userId}, filter]});
+  }
 });
+

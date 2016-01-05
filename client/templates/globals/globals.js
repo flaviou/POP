@@ -1,3 +1,7 @@
+//Meteor.subscribe('globals');
+//Meteor.subscribe('teams');
+//Meteor.subscribe('players');
+
 Template.globalEdit.events({
   'submit form': function(event){
     event.preventDefault();

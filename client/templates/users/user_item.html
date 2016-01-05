@@ -25,22 +25,22 @@
 </template>
 
 <template name="userDelete">
-	<div class="modal fade" id="userDelete">
-	  <div class="modal-dialog">
-		<!-- Modal content-->
-		<div class="modal-content">
-		  <div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			<h4 class="modal-title">Delete</h4>
-		  </div>
-		  <div class="modal-body">
-			<p>Are you sure you want to delete {{gh_user_full_name gh_selected_user}}?</p>
-		  </div>
-		  <div class="modal-footer">
-			<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-			<button type="button" class="btn btn-danger js-del-user-confirm" data-dismiss="modal">Yes. Delete {{gh_user_full_name gh_selected_user}}</button>
-		  </div>
-		</div>
-	  </div>
-	</div>  
+  <div class="modal fade" id="userDelete">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Delete</h4>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete {{gh_user_full_name gh_selected_user}}?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger js-del-user-confirm" data-dismiss="modal">Yes. Delete {{gh_user_full_name gh_selected_user}}</button>
+        </div>
+      </div>
+    </div>
+  </div>  
 </template>
