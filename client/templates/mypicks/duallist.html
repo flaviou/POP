@@ -1,2 +1,65 @@
 <template name="dualList">
+<div class="container">
+    <br />
+	<div class="row">
+
+        <div class="dual-list list-left col-md-5">
+            <div class="well text-right">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <span class="input-group-addon glyphicon glyphicon-search"></span>
+                            <input type="text" name="SearchDualList" class="form-control search-dual-list" placeholder="search" />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="btn-group">
+                            <a class="btn btn-default selector" title="select all"><i class="glyphicon glyphicon-unchecked"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-group">
+                  {{#each players}}
+                    <li class="list-group-item">
+                      <span class="list-player-team">{{teamID}}</span> - 
+                      <span class="list-player-number">{{number}}</span> - 
+                      <span class="list-player-name">{{name}}</span>
+                    </li>
+                  {{/each}}
+                </ul>
+            </div>
+        </div>
+
+        <div class="list-arrows col-md-1 text-center">
+            <button class="btn btn-default btn-sm move-left">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </button>
+
+            <button class="btn btn-default btn-sm move-right">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </button>
+        </div>
+
+        <div class="dual-list list-right col-md-5">
+            <div class="well">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="btn-group">
+                            <a class="btn btn-default selector" title="select all"><i class="glyphicon glyphicon-unchecked"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <input type="text" name="SearchDualList" class="form-control search-dual-list" placeholder="search" />
+                            <span class="input-group-addon glyphicon glyphicon-search"></span>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-group">
+                </ul>
+            </div>
+        </div>
+
+	</div>
+</div>
 </template>

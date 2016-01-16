@@ -2,8 +2,24 @@
 	display:none;
 }
 
-
 .navbar-nav > li{
   padding-left:30px;
   padding-right:30px;
+}
+
+.dual-list .list-group {
+  margin-top: 8px;
+  text-align: left;
+}
+
+.list-left li, .list-right li {
+  cursor: pointer;
+}
+
+.list-arrows {
+  padding-top: 100px;
+}
+
+.list-arrows button {
+  margin-bottom: 20px;
 }
