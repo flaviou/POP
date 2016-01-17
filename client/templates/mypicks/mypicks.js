@@ -2,7 +2,7 @@ Meteor.subscribe('myPicks');
 
 Template.myPicks.events({
   "click .js-toggle-pick-form": function(event) {
-    $("#pick_form").toggle('slow');
+    $("#pick_form_div").toggle('slow');
   },
   "click .js-delete": function() {
     Session.set("selectedPickId", this._id);
@@ -21,6 +21,26 @@ Template.myPicks.events({
       });
       if (name) {
         Meteor.call('insertPick', {'pick_name': name, 'players': players});
+        // reset form and close
+        var e = $.Event('keyup');
+        e.keyCode = 27;
+        $(".search-right-list").trigger(e); // empty the search boxes
+        e = $.Event('keyup');
+        e.keyCode = 27;
+        $(".search-left-list").trigger(e);
+        var $checkBoxRight = $(".select-all-right");
+        if ($checkBoxRight.hasClass("selected")) { // if it is check, uncheck it
+          $checkBoxRight.click();
+        }
+        $checkBoxRight.click(); // check select all
+        $(".move-left").click();
+        $("#pick_form").trigger("reset");
+        $checkBoxRight.click(); // uncheck select all
+        var $checkBoxLeft = $(".select-all-left");
+        if (!$checkBoxLeft.hasClass("selected")) {
+          $checkBoxLeft.click();
+        }
+        $checkBoxLeft.click(); // uncheck select all
         $("#btn-plus").click();
       }
     }

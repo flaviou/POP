@@ -16,11 +16,11 @@ Template.dualList.events({
     var actives = '';
     if ($button.hasClass('move-left')) {
       actives = $('.list-right ul li.active');
-      actives.clone().appendTo('.list-left ul');
+      actives.clone().prependTo('.list-left ul');
       actives.remove();
     } else if ($button.hasClass('move-right')) {
       actives = $('.list-left ul li.active');
-      actives.clone().appendTo('.list-right ul');
+      actives.clone().prependTo('.list-right ul');
       actives.remove();
     }
   },
