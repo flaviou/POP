@@ -37,7 +37,34 @@
 <template name="myPickList">
   <ul class="list-group">
     {{#each picks}}
-      <li class="list-group-item"><a href="#" class="glyphicon glyphicon-chevron-down"></a>{{pick_name}}</li> 
+      <li class="list-group-item">
+        <a href="#" class="glyphicon glyphicon-chevron-down"></a>
+        {{pick_name}}
+        <a href="#" class="glyphicon glyphicon-edit js-edit"></a>
+        <a href="#" class="glyphicon glyphicon-remove js-delete"></a>
+      </li> 
     {{/each}}
   </ul>
+  {{> pickDelete}}
+</template>
+
+<template name="pickDelete">
+  <div class="modal fade" id="pickDelete">
+    <div class="modal-dialog">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Delete</h4>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete {{pick_name}}?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger js-del-confirm" data-dismiss="modal">Yes. Delete {{pick_name}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>

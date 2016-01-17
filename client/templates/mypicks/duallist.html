@@ -20,10 +20,11 @@
                 </div>
                 <ul class="list-group">
                   {{#each players}}
-                    <li class="list-group-item">
+                    <li class="list-group-item" id="{{_id}}">
                       <span class="list-player-team">{{teamID}}</span> - 
                       <span class="list-player-number">{{number}}</span> - 
                       <span class="list-player-name">{{name}}</span>
+                      <span class="badge">{{age}}</span>
                     </li>
                   {{/each}}
                 </ul>
