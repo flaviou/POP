@@ -9,8 +9,10 @@ Meteor.methods({
     Picks.remove({_id: pickId});
   },
   insertPick: function(newDoc) {
+    var competition = Globals.findOne({current:1}).competition;
     newDoc['createdOn'] = new Date();
     newDoc['owner'] = Meteor.userId();
+    newDoc['competion'] = competition;
     Picks.insert(newDoc);
   }
 });

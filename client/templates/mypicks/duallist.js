@@ -1,4 +1,4 @@
-Meteor.subscribe('players', {});
+Meteor.subscribe('players', {}, {teamID:1, name:1, number:1});
 
 Template.dualList.helpers({
   players: function() {

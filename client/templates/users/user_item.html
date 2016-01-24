@@ -1,14 +1,9 @@
-<template name="userItem">
-	<tr>
-				<td>{{profile.full_name}}</td>
-				<td>{{gh_user_email _id}}</td>
-				<td>{{createdAt}}</td>
-				<td>{{last_login}}</td>
-				<td>{{updatedOn}}</td>
-				<td>{{gh_user_full_name updatedBy}}</td>
-				<td class="align-center"><a href="{{pathFor 'userEdit' id=this._id}}" class="glyphicon glyphicon-edit"></a></td>
-				<td class="align-center"><a href="#" class="glyphicon glyphicon-remove js-del-user"></a></td>
-	</tr>
+<template name="deleteIcon">
+  <a href="#" class="glyphicon glyphicon-remove js-del-user"></a>
+</template>
+
+<template name="editIcon">
+  <a href="{{pathFor 'userEdit' id=this._id}}" class="glyphicon glyphicon-edit"></a>
 </template>
 
 <template name="userEdit">
