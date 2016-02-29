@@ -23,3 +23,7 @@
 .list-arrows button {
   margin-bottom: 20px;
 }
+
+.graph {
+  height: 1000px;
+}

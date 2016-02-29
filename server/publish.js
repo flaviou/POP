@@ -23,7 +23,7 @@ Meteor.publish('players', function(query, projection){
 
 Meteor.publish('teams', function(){
   var competition = Globals.findOne({current:1}).competition;
-  return Teams.find({competition: competition});
+  return Teams.find({'competition': competition});
 //  return Teams.find({});
 });
 

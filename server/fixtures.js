@@ -1,8 +1,8 @@
-/*
+
 Teams.remove({});
-Players.remove({});
+//Players.remove({});
 Globals.remove({});
-*/
+
 var competition = 'NHL 2016';
 
 
@@ -38,6 +38,7 @@ if (Teams.find().count({competition:competition}) == 0) {
 }
 
 function loadPlayers(teamID) {
+//console.log('Player list - ' + teamID);
   Players.remove({teamID:teamID});
   var url = "http://nhlwc.cdnak.neulion.com/fs1/nhl/league/teamroster/<teamID>/iphone/clubroster.json";
   HTTP.call("GET", url.replace('<teamID>', teamID), function(error, result){
@@ -50,23 +51,115 @@ function loadPlayers(teamID) {
       for (var i=0; i < len; i++) {
         playerArr[i]['competition'] = competition;
         playerArr[i]['teamID'] = teamID;
-        Players.insert(playerArr[i]);
+//console.log(teamID + ' - ' + playerArr[i].id + ' - ' + playerArr[i].number + ' - ' + playerArr[i].name);
+//        Players.insert(playerArr[i]);
+        Players.upsert({
+          id: playerArr[i].id,
+        }, {
+          $set: playerArr[i]
+        });
       }
       playerArr = result.data.defensemen;
       len = playerArr.length;
       for (var i=0; i < len; i++) {
         playerArr[i]['competition'] = competition;
         playerArr[i]['teamID'] = teamID;
-        Players.insert(playerArr[i]);
+//console.log(teamID + ' - ' + playerArr[i].id + ' - ' + playerArr[i].number + ' - ' + playerArr[i].name);
+//        Players.insert(playerArr[i]);
+        Players.upsert({
+          id: playerArr[i].id,
+        }, {
+          $set: playerArr[i]
+        });
       }  
       playerArr = result.data.forwards;
       len = playerArr.length;
       for (var i=0; i < len; i++) {
         playerArr[i]['competition'] = competition;
         playerArr[i]['teamID'] = teamID;
-        Players.insert(playerArr[i]);
+//console.log(teamID + ' - ' + playerArr[i].id + ' - ' + playerArr[i].number + ' - ' + playerArr[i].name);
+//        Players.insert(playerArr[i]);
+        Players.upsert({
+          id: playerArr[i].id,
+        }, {
+          $set: playerArr[i]
+        });
+      }
+      url = 'http://nhlwc.cdnak.neulion.com/fs1/nhl/league/playerstatsline/20152016/2/<teamID>/iphone/playerstatsline.json';
+      HTTP.call("GET", url.replace('<teamID>', teamID), function(error, result){
+//console.log('Player stat - ' + teamID);
+        if (error) {
+          console.log(error);
+        }
+        if (result) {
+          var playerArr = result.data.skaterData;
+          var len = playerArr.length;
+          for (var i=0; i < len; i++) {
+            var id = playerArr[i]['id'];
+            var playerStat = playerArr[i]['data'];
+//console.log(teamID + ' - ' + id + ' - ' + playerStat);
+            var stats = playerArr[i]['data'].split(',');
+//        var assists = parseInt(stats[4]);
+//console.log(assists);
+/*
+        Players.update({'id': id}, {$set : {
+          'seasonGoals': parseInt(stats[4]),
+          'seasonAssists': parseInt(stats[5]),
+          'seasonPoints': parseInt(stats[6])
+        }});
+*/
+            Players.upsert({
+              id: id,
+            }, {$set: {
+              'competition': competition,
+              'number': parseInt(stats[0]),
+              'seasonGoals': parseInt(stats[4]),
+              'seasonAssists': parseInt(stats[5]),
+              'seasonPoints': parseInt(stats[6])
+            }});
+          }  
+        }
+      });
+    }
+  });
+}
+/*
+  url = 'http://nhlwc.cdnak.neulion.com/fs1/nhl/league/playerstatsline/20152016/2/<teamID>/iphone/playerstatsline.json';
+  HTTP.call("GET", url.replace('<teamID>', teamID), function(error, result){
+console.log('Player stat - ' + teamID);
+    if (error) {
+      console.log(error);
+    }
+    if (result) {
+      var playerArr = result.data.skaterData;
+      var len = playerArr.length;
+      for (var i=0; i < len; i++) {
+        var id = playerArr[i]['id'];
+        var playerStat = playerArr[i]['data'];
+console.log(playerStat);
+	var stats = playerArr[i]['data'].split(',');
+//        var assists = parseInt(stats[4]);
+//console.log(assists);
+*/
+/*
+        Players.update({'id': id}, {$set : {
+          'seasonGoals': parseInt(stats[4]),
+          'seasonAssists': parseInt(stats[5]),
+          'seasonPoints': parseInt(stats[6])
+        }});
+*/
+/*
+        Players.upsert({
+          id: id,
+        }, {$set: {
+          'competition': competition,
+          'number': parseInt(stats[0]),
+          'seasonGoals': parseInt(stats[4]),
+          'seasonAssists': parseInt(stats[5]),
+          'seasonPoints': parseInt(stats[6])
+        }});
       }
     }
   });
 }
-
+*/
