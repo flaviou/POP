@@ -17,22 +17,20 @@
 	        </div>
 	        <div class="col-md-8 col-xm-12">
 	          <input type="text" id="pick_name">
+                  <button class="btn btn-primary js-save-pick-form" type="submit">Save</button>
 	        </div>
                 <div class="col-md-2 col-xm-12">
-                  <button class="btn btn-primary js-save-pick-form" type="submit">Save</button>
                 </div>
 	      </div>
 	      <div class="form-group">
-                {{> dualList}}
+                {{> playerSelectionList }}
               </div>
             </form>
        </div>
      </div>
      {{> myPickList}}
   {{else}}
-  <h3>Sign in to enter your team.</h3>
-  <h3><a href="/playersTable">Check the players' stats.</a></h3>
-  <h3><a href="/playersGraph">Visualize the players' stats.</a></h3>
+    <h3>Sign in to enter your team.</h3>
   {{/if}}
 </template>
 
@@ -42,6 +40,8 @@
       <li class="list-group-item">
         <a href="#" class="glyphicon glyphicon-chevron-down"></a>
         {{pick_name}}
+        <div id="pick_details" class="hidden_div">
+        </div>
         <a href="#" class="glyphicon glyphicon-edit js-edit"></a>
         <a href="#" class="glyphicon glyphicon-remove js-delete"></a>
       </li> 

@@ -1,0 +1,34 @@
+<template name="playerSelectionList">
+  <div class="container">
+    <div class="row">
+      {{> shoppingCart }}
+    </div>
+    <div class="row">
+      <div class="dual-list list-left col-md-6">
+        <div class="well text-right">
+          <div class="row">
+            <div class="col-md-10">
+              <div class="input-group">
+                <span class="input-group-addon glyphicon glyphicon-search"></span>
+                <input type="text" name="SearchDualList" class="form-control search-dual-list search-left-list" placeholder="search" />
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="btn-group">
+                <a class="btn btn-default selector selector-all-left" title="select all"><i class="glyphicon glyphicon-unchecked"></i></a>
+              </div>
+            </div>
+          </div>
+          <ul class="list-group">
+            {{#each players}}
+              <li class="list-group-item" id="{{id}}" playerName="{{name}}">
+                {{teamID}} - {{number}} - {{name}}
+                <span class="badge">{{seasonPoints}}</span>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

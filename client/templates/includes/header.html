@@ -10,15 +10,14 @@
 			</button>
 			<a class="navbar-brand" href="/" >Playoff Pool</a>
 		</div>
-		<div class="collapse navbar-collapse" id="navbar">
+		<div class="collapse navbar-collapse large" id="navbar">
 			<ul class="nav navbar-nav">
 				<li><a href="{{pathFor 'myPicks'}}">My teams</a></li>
-				<li><a href="{{pathFor 'playersTable'}}">Stats [Tabular]</a></li>
-				<li><a href="{{pathFor 'playersGraph'}}">Stats [Graph]</a></li>
 {{#if gh_show_standing }}
 				<li><a href="{{pathFor 'standings'}}">Standings</a></li>
 {{/if}}
 {{#if isInRole 'admin'}}
+				<li><a href="{{pathFor 'playersTable'}}">Stats</a></li>
 				<li><a href="{{pathFor 'usersTable'}}">Users</a></li>
 				<li><a href="{{pathFor 'settings'}}">Settings</a></li>
 {{/if}}
