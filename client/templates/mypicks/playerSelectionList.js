@@ -10,40 +10,28 @@ Template.playerSelectionList.events({
   'click .list-group .list-group-item': function(event) {
     n = Session.get("numOfPlayers");
     n = n ? n : 0;
-console.log($(event.target));
-console.log($(event.target).attr("id"));
-console.log($(event.target).attr("playerName"));
-/*
-console.log($(event.target));
-selectedPlayer = $(event.target)[0].innerText.split(' ');
-console.log(selectedPlayer);
-team = selectedPlayer[0];
-name = selectedPlayer[2];
-number = selectedPlayer[4];
-cost = selectedPlayer[5];
-selectedPlayers = Session.get("selectedPlayers");
-if (selectedPlayers) {
-  index = $.grep(selectedPlayers, function(e){return e.name = name;});
-} else {
-  selectedPlayers=[];
-  index = 0;
-}
-console.log(index);
-
+    id = $(event.target).attr("id");
+    name = $(event.target).attr("playerName");
+    var selectedPlayer = $(event.target)[0].innerText.split(' ');
+    number = selectedPlayer[2];
+    team = selectedPlayer[0];
+    cost = selectedPlayer[6];
+    if (typeof selectedPlayers !== 'undefined') {
+      selectedPlayers = Session.get("selectedPlayers");
+      selectedPlayers = $.grep(selectedPlayers, function(e){return e.id != id;});
+    } else {
+      selectedPlayers=[];
+      index = 0;
+    }
     if ($(event.target)[0].classList.contains('active')) {
       if (n > 0) {
         Session.set("numOfPlayers", n - 1);
       }
-      if (index > 0) {
-        Session.set("selectedPlayers", selectedPlayers.splice(index));
-      }
     } else {
       Session.set("numOfPlayers", n + 1);
-      if (index == 0) {
-        Session.set("selectedPlayers", selectedPlayers.push({'team': team, 'name': name, 'number': number, 'cost': cost}));
-      }
+      selectedPlayers.push({'id': id, 'team': team, 'name': name, 'number': number, 'cost': cost});
     }
-*/
+    Session.set("selectedPlayers", selectedPlayers);
     $(event.target).toggleClass('active');
   },
   'click .dual-list .selector': function(event) {

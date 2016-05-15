@@ -31,10 +31,11 @@ Meteor.publish('users', function(query) {
   if (!query) {
     query = {};
   }
-  if (Roles.userIsInRole(this.userId, ['admin'])) {
+//  if (Roles.userIsInRole(this.userId, ['admin'])) {
     return Meteor.users.find(query);
-  } else {
-    return Meteor.users.find({$and: [{_id:this.userId}, query]});
-  }
+//  } else {
+//    return Meteor.users.find(query,{fields: {'profile.full_name':1}});
+//    return Meteor.users.find({$and: [{_id:this.userId}, query]},{fields: {'profile.full_name':1}});
+//  }
 });
 

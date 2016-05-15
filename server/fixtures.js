@@ -1,6 +1,12 @@
-
+/*
+if (Meteor.users.find().count() == 1) {
+  var user = Meteor.users.findOne();
+  Roles.addUsersToRoles(user.id, user.roles, 'admin');
+}
+*/
+/*
 Teams.remove({});
-//Players.remove({});
+Players.remove({});
 Globals.remove({});
 
 var competition = 'NHL 2016';
@@ -108,6 +114,7 @@ function loadPlayers(teamID) {
           'seasonPoints': parseInt(stats[6])
         }});
 */
+/*
             Players.upsert({
               id: id,
             }, {$set: {
@@ -123,6 +130,7 @@ function loadPlayers(teamID) {
     }
   });
 }
+*/
 /*
   url = 'http://nhlwc.cdnak.neulion.com/fs1/nhl/league/playerstatsline/20152016/2/<teamID>/iphone/playerstatsline.json';
   HTTP.call("GET", url.replace('<teamID>', teamID), function(error, result){
