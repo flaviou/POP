@@ -1,4 +1,4 @@
-/*
+
 Picks.helpers({
   totalCost: function() {
     var total = 0;
@@ -11,4 +11,4 @@ Picks.helpers({
     return total;
   }
 })
-*/
+

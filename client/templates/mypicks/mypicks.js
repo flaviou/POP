@@ -16,8 +16,8 @@ Template.myPicks.events({
       var players = [];
       selectedPlayers = Session.get("selectedPlayers");
       if (typeof selectedPlayers !== 'undefined') {
-        selectedPlayers.forEach(function(index) {
-          players.push(this.id);
+        selectedPlayers.forEach(function(player) {
+          players.push(player.id);
         });
       }
       if (name) {

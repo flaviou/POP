@@ -1,3 +1,4 @@
+//Picks.remove({});
 /*
 if (Meteor.users.find().count() == 1) {
   var user = Meteor.users.findOne();
@@ -8,10 +9,10 @@ if (Meteor.users.find().count() == 1) {
 Teams.remove({});
 Players.remove({});
 Globals.remove({});
+*/
+//var competition = 'NHL 2016';
 
-var competition = 'NHL 2016';
-
-
+/*
 if (Globals.find().count() == 0) {
   Globals.insert({
     competition: competition,
@@ -19,7 +20,8 @@ if (Globals.find().count() == 0) {
     current: 1
   });
 }
-
+*/
+/*
 if (Teams.find().count({competition:competition}) == 0) {
   var url = "http://www.nicetimeonice.com/api/teams";
   HTTP.call("GET", url, function(error, result){
@@ -35,14 +37,15 @@ if (Teams.find().count({competition:competition}) == 0) {
           if (error) {
             console.log(error);
           }
-          var team = Teams.findOne({_id: result});
-          loadPlayers(team.teamID);
+//          var team = Teams.findOne({_id: result});
+//          loadPlayers(team.teamID);
         });
       }    
     } 
   });
 }
-
+*/
+/*
 function loadPlayers(teamID) {
 //console.log('Player list - ' + teamID);
   Players.remove({teamID:teamID});
